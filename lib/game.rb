@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game
   attr_accessor :id, :players, :total_kills, :kills, :kills_by_means
 
