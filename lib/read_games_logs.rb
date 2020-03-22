@@ -21,7 +21,7 @@ class ReadGamesLogs
       add_players(line)
       get_kills(line)
     end
-    games
+    games.map(&:to_h)
   end
 
   private

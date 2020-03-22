@@ -26,6 +26,17 @@ class Game
     end
   end
 
+  def to_h
+    kills_sorted_desc = kills.sort_by { |k, v| v }.reverse.to_h
+
+    Hash[id, {
+      total_kills: total_kills,
+      players: players,
+      kills: kills_sorted_desc,
+      kills_by_means: kills_by_means
+    }]
+  end
+
   private
 
   def increase_kill(kill)
