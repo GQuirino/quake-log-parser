@@ -31,7 +31,7 @@ describe ReadGamesLogs do
 
     subject { described_class.perform(file_path) }
 
-    it 'returns list contain 2 games' do
+    it 'returns list containing 2 games' do
       is_expected.to match_array([game, game])
     end
 
