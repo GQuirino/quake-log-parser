@@ -9,5 +9,3 @@ group :test do
   gem 'rspec', '~> 3.9.0'
   gem 'simplecov', '~> 0.18.5'
 end
-
-gem 'byebug', '~> 11.1'

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'game'
-require 'byebug'
 
 class ReadGamesLogs
   attr_accessor :games
