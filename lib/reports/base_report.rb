@@ -23,14 +23,14 @@ class BaseReport
 
   def export
     File.open(path, 'w+') { |f| f.write(JSON.pretty_generate(content)) }
-    "report #{filename} created! \n in: #{path}"
+    "report #{filename} created! \nin: #{path}"
+  end
+
+  def self.report_content(game = {})
+    raise NotImplementedError
   end
 
   private
-
-  def report_content(_game = {})
-    raise NotImplementedError
-  end
 
   def report_name
     raise NotImplementedError
