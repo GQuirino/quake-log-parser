@@ -16,7 +16,7 @@ class Game
   end
 
   def add_kill(killer, killed, mean)
-    increase_kill(total_kills)
+    self.total_kills = increase_kill(self.total_kills)
     kills_by_means[mean] = increase_kill(kills_by_means[mean])
 
     if killer == '<world>'
