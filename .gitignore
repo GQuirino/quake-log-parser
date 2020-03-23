@@ -1,5 +1,5 @@
 
 coverage/
 
-lib/reports/generated/*
-!lib/reports/generated/.gitkeep 
+reports_parsed/
+!reports_parsed/.gitkeep

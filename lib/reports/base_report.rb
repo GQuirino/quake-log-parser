@@ -9,7 +9,7 @@ class BaseReport
 
   def initialize(content)
     @filename = "#{report_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%S')}.json"
-    @path = "lib/reports/generated/#{filename}"
+    @path = "reports_parsed/#{filename}"
     @content = content
   end
 
