@@ -16,7 +16,7 @@ class Game
   end
 
   def add_kill(killer, killed, mean)
-    self.total_kills = increase_kill(self.total_kills)
+    self.total_kills = increase_kill(total_kills)
     kills_by_means[mean] = increase_kill(kills_by_means[mean])
 
     if killer == '<world>'
@@ -29,12 +29,14 @@ class Game
   def to_h
     kills_sorted_desc = kills.sort_by { |k, v| v }.reverse.to_h
 
-    Hash[id, {
-      total_kills: total_kills,
-      players: players,
-      kills: kills_sorted_desc,
-      kills_by_means: kills_by_means
-    }]
+    {
+      id => {
+        total_kills: total_kills,
+        players: players,
+        kills: kills_sorted_desc,
+        kills_by_means: kills_by_means
+      }
+    }
   end
 
   private

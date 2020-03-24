@@ -47,10 +47,10 @@ class ReadGamesLogs
     return unless line[/Kill:/]
 
     game = games.last
-    killer_info = line.match(/Kill:(\s\d{1,4}){1,3}:\s(?<killer>.*?)\skilled\s(?<killed>.*?)\sby\s(?<mean>.*?)$/)
-    killer = killer_info[:killer]
-    killed = killer_info[:killed]
-    mean = killer_info[:mean]
+    kill_info = line.match(/Kill:(\s\d{1,4}){1,3}:\s(?<killer>.*?)\skilled\s(?<killed>.*?)\sby\s(?<mean>.*?)$/)
+    killer = kill_info[:killer]
+    killed = kill_info[:killed]
+    mean = kill_info[:mean]
 
     game.add_kill(killer, killed, mean)
   end

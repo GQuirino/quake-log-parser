@@ -6,7 +6,8 @@ require_relative 'base_report'
 class GameReport < BaseReport
   def self.report_content(game)
     game_id, report = game.first
-    Hash[game_id, report.reject { |k| k == :kills_by_means }]
+
+    { game_id => report.reject { |k| k == :kills_by_means } }
   end
 
   private
