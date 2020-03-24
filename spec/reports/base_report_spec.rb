@@ -54,6 +54,7 @@ describe BaseReport do
 
     before do
       allow_any_instance_of(described_class).to receive(:report_name).and_return(report_name)
+      allow(File).to receive(:open)
     end
 
     it 'creates new file' do
