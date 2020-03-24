@@ -5,14 +5,14 @@ Proposed solution for https://gist.github.com/talyssonoc/a51b5a6c42c8c60c0f8c0f2
 
 ## How to use
 
-- Install dependencies
+- Install dependencies<br/>
 `bundle install` <br/>
 
-- Run in your terminal
+- Run in your terminal<br/>
 `bundle exec rake parse_game_report` <br/>
 
-- Fill the path to the log for parsing, or just press Enter 
-`"Path to game.log to parse (logs/game.log):"`
+- Fill the path to the log for parsing, or just press Enter<br/>
+`"Path to game.log to parse (logs/game.log):"`<br/>
 `logs/game.log` is the default path <br/>
 
 - Will generate and save the reports:
