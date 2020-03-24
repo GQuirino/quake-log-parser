@@ -6,20 +6,20 @@ describe ReadGamesLogs do
   describe '#perform' do
     let(:file) { double(:file, readlines: file_lines) }
     let(:file_path) { 'file/path' }
-    let(:player_1) { 'Player Test' }
-    let(:killer) { 'Player2' }
+    let(:player_1) { 'Player1' }
+    let(:world) { '<world>' }
     let(:mean_kill) { 'MOD_ROCKET_SPLASH' }
     let(:file_lines) do
       [
         '789:12 ------------------------',
         ' 0:37 InitGame: -----',
         '20:38 ClientUserinfoChanged: n\\' + player_1 + '\t',
-        " 212:12 Kill: 1022: #{killer} killed #{player_1} by #{mean_kill}",
+        " 212:12 Kill: 1022: #{world} killed #{player_1} by #{mean_kill}",
         '  20:40 InitGame: -----',
         '020:45 ClientConnect: 1'
       ]
     end
-    let(:game) { double(:game) }
+    let(:game) { double(:game, to_h: Hash) }
 
     before do
       allow(File).to receive(:open).and_call_original
@@ -31,8 +31,9 @@ describe ReadGamesLogs do
 
     subject { described_class.perform(file_path) }
 
-    it 'returns list containing 2 games' do
-      is_expected.to match_array([game, game])
+    it 'converts Game to Hash' do
+      expect(game).to receive(:to_h).twice
+      subject
     end
 
     it 'calls Game with game_0' do
@@ -51,7 +52,7 @@ describe ReadGamesLogs do
     end
 
     it 'adds kill to game' do
-      expect(game).to receive(:add_kill).with(killer, player_1, mean_kill)
+      expect(game).to receive(:add_kill).with(world, player_1, mean_kill)
       subject
     end
   end

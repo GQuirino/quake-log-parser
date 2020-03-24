@@ -1,6 +1,8 @@
 # frozen_string_literal: true
+
 require 'pry'
 require 'simplecov'
+require 'timecop'
 
 SimpleCov.start
 
